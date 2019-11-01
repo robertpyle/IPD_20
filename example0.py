@@ -6,7 +6,7 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'E0'
+team_name = 'Ethan Volz'
 strategy_name = 'Collude'
 strategy_description = 'Always collude.'
     

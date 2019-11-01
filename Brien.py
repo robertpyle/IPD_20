@@ -1,3 +1,4 @@
+import random
 ####
 # Each team's file must define four tokens:
 #     team_name: a string
@@ -6,9 +7,9 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'Pyle'
-strategy_name = 'Alternate'
-strategy_description = 'Collude, then alternate.'
+team_name = 'Brien'
+strategy_name = 'collude first turn then roulette'
+strategy_description = 'Always collude on first turn then 50/50 chance to collude or betray.'
 
 def move(my_history, their_history, my_score, their_score):
     '''Make my move based on the history with this player.
@@ -20,8 +21,11 @@ def move(my_history, their_history, my_score, their_score):
 
     Returns 'c' or 'b' for collude or betray.
     '''
-    # This player colludes on even numbered rounds (first round is round #0).
-    if len(my_history)%2 == 0:
+
+    if len(my_history)==0: # It's the first round; collude.
         return 'c'
     else:
-        return 'b'
+        if random.random()<0.50: # 50% of the other rounds
+            return 'b'         # Betray
+        else:
+            return 'c'

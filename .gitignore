@@ -1,3 +1,4 @@
 *.pyc
 tournament.txt
 .c9
+*.json
